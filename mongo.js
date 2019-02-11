@@ -23,11 +23,11 @@ if ( (process.argv.length > 3) && (process.argv[4] !== undefined)) {
   const person = new Person({
     name: process.argv[3],
     number: process.argv[4],
-})
-person.save().then(response => {
-  console.log(`Lisätään ${person.name} numero ${person.number} luetteloon`);
-  mongoose.connection.close();
-})
+  })
+  person.save().then(response => {
+    console.log(`Lisätään ${person.name} numero ${person.number} luetteloon`);
+    mongoose.connection.close();
+  })
 } else {
   console.log('puhelinluettelo:')  
   Person.find({}).then(people => {
